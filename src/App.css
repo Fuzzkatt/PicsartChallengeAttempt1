@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@500&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family: 'Anek Malayalam', sans-serif;
+  
+}
+
+:root {
+  --bg-color: #f78c82;
+  --font-color-1: black;
+  --font-color-2: gray;
+  --button-color: #F05E51;
+}
+
+.threeColumn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
