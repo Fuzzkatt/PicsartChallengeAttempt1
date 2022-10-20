@@ -1,0 +1,44 @@
+.container3 {
+  width: 30vw;
+  display: grid;
+  place-items: center;
+  margin-left: 3vw;
+}
+
+
+.param {
+  font-size: 3.5vh;
+}
+
+.generate {
+ 
+  font-size: 1.25em;
+  font-weight: 100;
+  color: white;
+  background-color: var(--button-color);
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 0.1em 0.8em ;
+  width: 50%;
+  border: none;
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+}
+
+.generate:hover { 
+  background-color: #f13939;
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .container3{
+  width: 100vw;
+  height: 50vh;
+}
+
+
+}
+
+ 
+  

@@ -8,12 +8,14 @@ import json
 def index():
   return render_template('take-input.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/removebg', methods=['POST'])
 def remove_background_post():
-  text = request.form['text']
+  #text = request.form['text']
+  text = request.form.get('image')
   url = "https://api.picsart.io/tools/demo/removebg"
 
-  payload={"bg_blur": "0", "scale": "fit", "image_url": text, "format": "PNG", "output_type": "cutout"}
+  #payload={"bg_blur": "0", "scale": "fit", "image_url": text, "format": "PNG", "output_type": "cutout"}
+  payload={"bg_blur": "0", "scale": "fit", "image_url": "http://images6.fanpop.com/image/photos/36100000/Pok-mon-image-pokemon-36101114-1024-1024.jpg", "format": "PNG", "output_type": "cutout"}
   files=[]
   headers = {
     "accept": "application/json", "apikey": "sifH0Y0MoRLcboeYh899RiWFw29vt0Pz"

@@ -1,0 +1,45 @@
+.container4 {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3vw;
+}
+
+.container4 > * {
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+}
+.preview {
+  width: 32vw;
+  margin-bottom: 3%;
+  border-radius: 20px;
+}
+
+.download {
+  font-size: 1.25em;
+  font-weight: 100;
+  color: white;
+  background-color: var(--button-color);
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 0.1em 0.8em;
+  border: none;
+}
+
+.download:hover { 
+  background-color: #f13939;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .container4 {
+    width: 1000vh;
+    height: 50vh;
+    margin: 0 auto;
+  }
+
+  .preview {
+    width: 65vw;
+  }
+}
