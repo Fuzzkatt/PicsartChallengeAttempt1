@@ -2,12 +2,16 @@
   width: 30vw;
   display: grid;
   place-items: center;
-  margin-left: 3vw;
+  margin-left: 2.5vw;
 }
 
 
 .param {
   font-size: 3.5vh;
+}
+
+li {
+  list-style-type: none;
 }
 
 .generate {
@@ -30,6 +34,69 @@
     text-decoration: underline;
 }
 
+input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background: var(--font-color-2);
+  border-radius: 20px;
+  box-shadow:  4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+}
+
+input:checked[type="checkbox"] {
+  background-color: var(--button-color)
+}
+
+input[type="checkbox"]:before {
+  content: " ";
+  position: absolute;
+  width: 20px;
+  height:20px;
+  border-radius: 20px;
+  top:0;
+  left: 0;
+  background: white;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before {
+  left: 20px;
+}
+
+
+.imageContrast {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--font-color-2);
+  outline: none; 
+  opacity: 0.9; 
+  transition: .2s; 
+  border-radius: 20px;
+  width: 5vw;
+  height: 20px;
+  box-shadow:  4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+}
+
+.imageContrast::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 22px; 
+  height: 22px; 
+  background: white; 
+  cursor: pointer; 
+  border-radius: 20px;
+}
+
+.imageContrast::-moz-range-thumb {
+  width: 22px; 
+  height: 22px; 
+  background: var(--button-color); 
+  cursor: pointer; 
+  border-radius: 20px;
+}
+
 
 @media (max-width: 768px) {
   .container3{
@@ -37,6 +104,9 @@
   height: 50vh;
 }
 
+.imageContrast {
+  width: 10vw;
+}
 
 }
 
