@@ -1,14 +1,12 @@
 import Instructions from './components/Instructions/Instructions';
 import Image from './components/Image/Image';
-import Parameters from './components/Parameters/Parameters';
 import Preview from './components/Preview/Preview';
-import axios from "axios";
 import React, { useState } from 'react'
 import './App.css';
 
 function App() {
 
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedFile, setSelectedFile] = useState("please select a file");
 	const [isSelected, setIsSelected] = useState(false);
 
 	const changeHandler = (event) => {
@@ -83,7 +81,14 @@ function App() {
         <div>
           <button onClick={handleAdjust}>Upscale + Adjust</button>
         </div>
+      <div>
+        <Instructions/>
+        <div className="threeColumn">
+          <Image file={selectedFile.name}/>
+          <Preview/>
+        </div>
       </div>
+    </div>
     )
 };
 
