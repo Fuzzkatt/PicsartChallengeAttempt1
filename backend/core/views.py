@@ -1,4 +1,5 @@
 from flask import render_template, Flask, request
+from regex import F
 from core import app
 
 import requests
@@ -63,9 +64,26 @@ def run_backend(pdf_file, adjust=False):
 
 @app.route('/upscale', methods=['POST'])
 def upscale_post():
-  print(f'request.form: {request.form}')
-  print(f'request.json: {request.json}')
-  pdf_file = request.json['pdf_file']
+  # print(f'request.form: {request.form}')
+  # print(f'request.json: {request.json}')
+
+  print('made it to upscale_post')
+
+  if 'file' not in request.files:
+    print('no file part')
+    print(f'request.files: {request.files}')
+
+  # file = request.json['filename']
+  #file.save(file.filename)
+  #pdf_file = file.filename
+  file = request.files['file']
+  pdf_file = file.filename
+  file.save(pdf_file)
+  #pdf_file = request.json['pdf_file']
+
+  print('starting run_backend')
+  print(f'pdf_file: {pdf_file}')
+
   run_backend(pdf_file)
   return render_template('show-result.html', text='success!')
 
