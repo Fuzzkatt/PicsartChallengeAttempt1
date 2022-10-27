@@ -8,23 +8,23 @@ function App() {
 
   const [selectedFile, setSelectedFile] = useState("please select a file");
 	const [isSelected, setIsSelected] = useState(false);
+  const [prompt, setPrompt] = useState("Select your file to process")
 
 	const changeHandler = (event) => {
 		setSelectedFile(event.target.files[0]);
 		setIsSelected(true);
-	}; 
+    setPrompt("Pick upscale or upscale + adjust")
+	};
 
 	function handleUpscale(event) {
     event.preventDefault()
-    console.log("test1")
+
+    setPrompt("Your file is currently processing. Please be patient, processing can take up to one minute per page!")
 
     const url = 'http://localhost:3000/upscale';
     const formData = new FormData();
     formData.append('file', selectedFile);
     formData.append('filename', selectedFile.name)
-    console.log(selectedFile)
-    console.log(formData)
-
     fetch(url, {
       method: 'POST',
       body: formData,
@@ -32,19 +32,20 @@ function App() {
       response.json().then((body) => {
         console.log(response.data)
       });
+      setPrompt("Thank you for waiting! Your file is ready at /flask/backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
     });
+
   }
     
   function handleAdjust(event) {
     event.preventDefault()
-    console.log("test1")
+
+    setPrompt("Your file is currently processing. Please be patient, processing can take up to one minute per page!")
 
     const url = 'http://localhost:3000/adjust';
     const formData = new FormData();
     formData.append('file', selectedFile);
     formData.append('filename', selectedFile.name)
-    console.log(selectedFile)
-    console.log(formData)
 
     fetch(url, {
       method: 'POST',
@@ -53,50 +54,31 @@ function App() {
       response.json().then((body) => {
         console.log(response.data)
       });
+      setPrompt("Thank you for waiting! Your file is ready at /flask/backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
     });
 
   }
 
   return(
     <div>
-    
-       
-        
-      
       <div>
         <Instructions/>
         <div className="threeColumn">
-         
-        <div className="ImageContainer">
-          <Image file={selectedFile.name}/>
-          <input type="file" name="file" onChange={changeHandler} />
-        {isSelected ? (
+
+          <div className="ImageContainer">
+            <Image file={selectedFile.name}/>
+            <input type="file" name="file" onChange={changeHandler} />
+          </div>
+
           <div>
-            <p>Conversion takes roughly one minute per page, please be patient!</p>
-            <p>Resultant file will be stored at /flask/backend/[file_name]_fixed.pdf when finished</p>
-            <p>Filename: {selectedFile.name}</p>
-            <p>Filetype: {selectedFile.type}</p>
-            <p>Size in bytes: {selectedFile.size}</p>
-            <p>
-              lastModifiedDate:{' '}
-              {selectedFile.lastModifiedDate.toLocaleDateString()}
-            </p>
+            <p> {prompt} </p>
           </div>
-        ) : (
-          <p>Select a file to show details</p>
-        )}
 
-
-        </div>
-        <div className="parameters">
-          
-          <button onClick={handleUpscale} className="parameterButton">Upscale</button>
-        
-        
-          <button onClick={handleAdjust} className="parameterButton">Upscale + Adjust</button>
-        
+          <div className="parameters">
+            <button onClick={handleUpscale} className="parameterButton">Upscale</button>
+            <button onClick={handleAdjust} className="parameterButton">Upscale + Adjust</button>
           </div>
-          <Preview/>
+
         </div>
       </div>
     </div>
