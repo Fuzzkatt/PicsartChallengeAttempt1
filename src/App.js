@@ -1,6 +1,5 @@
 import Instructions from './components/Instructions/Instructions';
 import Image from './components/Image/Image';
-import Preview from './components/Preview/Preview';
 import React, { useState } from 'react'
 import './App.css';
 
@@ -32,7 +31,7 @@ function App() {
       response.json().then((body) => {
         console.log(response.data)
       });
-      setPrompt("Thank you for waiting! Your file is ready at /flask/backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
+      setPrompt("Thank you for waiting! Your file is ready at backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
     });
 
   }
@@ -54,7 +53,7 @@ function App() {
       response.json().then((body) => {
         console.log(response.data)
       });
-      setPrompt("Thank you for waiting! Your file is ready at /flask/backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
+      setPrompt("Thank you for waiting! Your file is ready at backend/" + selectedFile.name.slice(0, -4) + "_fixed.pdf")
     });
 
   }
