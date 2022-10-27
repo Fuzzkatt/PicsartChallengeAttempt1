@@ -27,7 +27,7 @@
   width: 30vw;
   display: grid;
   place-items: center;
-  margin: 0 0 3vw 2.5vw;
+  margin: 0 0 0 2.5vw;
 }
 
 
@@ -60,4 +60,39 @@
 }
 
 
+}
+
+.imageContainer{
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2.5vw;
+ 
+}
+
+p {
+  width: 30vw;
+  margin-left:2.5vw;
+  margin-right:auto;
+}
+
+
+input[type=file] {
+  margin-left: 2.5vw;
+  font-size: 1.25vw;
+  font-weight: 100;
+  color: white;
+  background-color: var(--button-color);
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 0.1em 0.5em;
+  border: none;
+  
+}
+
+input[type=file]:hover {
+  background-color: #f13939;
+  text-decoration: underline;
 }

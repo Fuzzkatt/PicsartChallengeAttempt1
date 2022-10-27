@@ -12,7 +12,7 @@ function App() {
 	const changeHandler = (event) => {
 		setSelectedFile(event.target.files[0]);
 		setIsSelected(true);
-	};
+	}; 
 
 	function handleUpscale(event) {
     event.preventDefault()
@@ -59,7 +59,17 @@ function App() {
 
   return(
     <div>
-      {/*}  <input type="file" name="file" onChange={changeHandler} />
+    
+       
+        
+      
+      <div>
+        <Instructions/>
+        <div className="threeColumn">
+         
+        <div className="ImageContainer">
+          <Image file={selectedFile.name}/>
+          <input type="file" name="file" onChange={changeHandler} />
         {isSelected ? (
           <div>
             <p>Conversion takes roughly one minute per page, please be patient!</p>
@@ -75,12 +85,9 @@ function App() {
         ) : (
           <p>Select a file to show details</p>
         )}
-        */}
-       
-      <div>
-        <Instructions/>
-        <div className="threeColumn">
-          <Image file={selectedFile.name}/>
+
+
+        </div>
         <div className="parameters">
           
           <button onClick={handleUpscale} className="parameterButton">Upscale</button>
