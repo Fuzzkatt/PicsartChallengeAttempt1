@@ -23,3 +23,41 @@
 }
 
 
+.parameters {
+  width: 30vw;
+  display: grid;
+  place-items: center;
+  margin: 0 0 3vw 2.5vw;
+}
+
+
+.parameterButton {
+  font-size: 3vw;
+  font-weight: 100;
+  color: white;
+  background-color: var(--button-color);
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 0.1vw 0.8vw;
+  border: none;
+}
+
+.parameterButton:hover { 
+  background-color: #f13939;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .parameters{
+  width: 100vw;
+  height: 20vw;
+}
+
+.parameterButton{
+  font-size: 5vw;
+}
+
+
+}

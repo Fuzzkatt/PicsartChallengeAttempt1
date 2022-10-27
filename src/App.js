@@ -59,7 +59,7 @@ function App() {
 
   return(
     <div>
-        <input type="file" name="file" onChange={changeHandler} />
+      {/*}  <input type="file" name="file" onChange={changeHandler} />
         {isSelected ? (
           <div>
             <p>Conversion takes roughly one minute per page, please be patient!</p>
@@ -75,16 +75,20 @@ function App() {
         ) : (
           <p>Select a file to show details</p>
         )}
-        <div>
-          <button onClick={handleUpscale}>Upscale</button>
-        </div>
-        <div>
-          <button onClick={handleAdjust}>Upscale + Adjust</button>
-        </div>
+        */}
+       
       <div>
         <Instructions/>
         <div className="threeColumn">
           <Image file={selectedFile.name}/>
+        <div className="parameters">
+          
+          <button onClick={handleUpscale} className="parameterButton">Upscale</button>
+        
+        
+          <button onClick={handleAdjust} className="parameterButton">Upscale + Adjust</button>
+        
+          </div>
           <Preview/>
         </div>
       </div>
