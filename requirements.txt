@@ -1,0 +1,5 @@
+argparse
+pymupdf
+requests
+regex
+Pillow
