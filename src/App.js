@@ -1,14 +1,12 @@
 import Instructions from './components/Instructions/Instructions';
 import Image from './components/Image/Image';
-import Parameters from './components/Parameters/Parameters';
 import Preview from './components/Preview/Preview';
-import axios from "axios";
 import React, { useState } from 'react'
 import './App.css';
 
 function App() {
 
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedFile, setSelectedFile] = useState("please select a file");
 	const [isSelected, setIsSelected] = useState(false);
 
 	const changeHandler = (event) => {
@@ -40,24 +38,32 @@ function App() {
 
   return(
     <div>
-        <input type="file" name="file" onChange={changeHandler} />
-        {isSelected ? (
-          <div>
-            <p>Filename: {selectedFile.name}</p>
-            <p>Filetype: {selectedFile.type}</p>
-            <p>Size in bytes: {selectedFile.size}</p>
-            <p>
-              lastModifiedDate:{' '}
-              {selectedFile.lastModifiedDate.toLocaleDateString()}
-            </p>
-          </div>
-        ) : (
-          <p>Select a file to show details</p>
-        )}
+      <input type="file" name="file" onChange={changeHandler} />
+      {isSelected ? (
         <div>
-          <button onClick={handleSubmission}>Submit</button>
+          <p>Filename: {selectedFile.name}</p>
+          <p>Filetype: {selectedFile.type}</p>
+          <p>Size in bytes: {selectedFile.size}</p>
+          <p>
+            lastModifiedDate:{' '}
+            {selectedFile.lastModifiedDate.toLocaleDateString()}
+          </p>
+        </div>
+      ) : (
+        <p>Select a file to show details</p>
+      )}
+      <div>
+        <button onClick={handleSubmission}>Submit</button>
+      </div>
+      <div>
+        <Instructions/>
+        <div className="threeColumn">
+          <Image file={selectedFile.name}/>
+          // something belongs here
+          <Preview/>
         </div>
       </div>
+    </div>
     )
 };
 

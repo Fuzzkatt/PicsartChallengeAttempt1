@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 3vw;
+  margin-right: 2.5vw;
 }
 
 .container4 > * {
@@ -32,7 +32,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .container4 {
     width: 1000vh;
     height: 50vh;
